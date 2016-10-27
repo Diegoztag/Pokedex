@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Pokédex</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -14,42 +14,47 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="pokedexApp">
+  <body ng-app="pokedex">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <a class="navbar-brand" href="#/">pokedex</a>
-          </div>
-
-          <div class="collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+    <div ng-controller="PokemonController as pkmCtrl">
+      <h1>{{pkmCtrl.pokemon.nombre}} <span>#{{pkmCtrl.pokemon.id}}</span></h1>
+      <h2>{{pkmCtrl.pokemon.especie}}</h2>
+      <img src="images/pokemons/{{pkmCtrl.pokemon.nombre|lowercase}}.jpg">
+      <!-- tabs -->
+      <div>
+        <ul>
+          <li><a href="#">Pokédex</a></li>
+          <li><a href="#">Estadísticas</a></li>
+          <li><a href="#">Evoluciones</a></li>
+        </ul>
+      </div>
+      <!-- tab pokedex -->
+      <div>
+       <ul>
+          <li>
+            <strong>Tipo: </strong>
+            <span class="tipo-{{tipo|lowercase}}" ng-repeat="tipo in pkmCtrl.pokemon.tipo">{{tipo}}</span>
+          </li>
+          <li>
+            <strong>Altura: </strong>{{pkmCtrl.pokemon.altura}}
+          </li>
+          <li>
+            <strong>Peso: </strong>{{pkmCtrl.pokemon.peso}}
+          </li>
+          <li>
+            <strong>Habilidades: </strong>
+            <ul>
+              <li ng-repeat="habs in pkmCtrl.pokemon.habilidades">{{habs}}</li>
             </ul>
-          </div>
-        </div>
+          </li>
+        </ul> 
       </div>
+      
     </div>
-
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
-
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>

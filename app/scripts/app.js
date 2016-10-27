@@ -1,30 +1,38 @@
-'use strict';
+(function () {
+  'use strict';
 
-/**
- * @ngdoc overview
- * @name pokedexApp
- * @description
- * # pokedexApp
- *
- * Main module of the application.
- */
-angular
-  .module('pokedexApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+  var app = angular.module('pokedex', [
+      'ngAnimate',
+      'ngCookies',
+      'ngResource',
+      'ngRoute',
+      'ngSanitize',
+      'ngTouch'
+    ]);
+
+    app.config(function ($routeProvider) {
+      $routeProvider
+        .when('/', {
+          templateUrl: 'views/main.html',
+          controller: 'MainCtrl',
+          controllerAs: 'main'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+    }); 
+
+    app.controller('PokemonController', function(){
+      this.pokemon = {
+        id: '001',
+        nombre: 'Bulbasaur',
+        especie: 'Pokémon semilla',
+        tipo: ['Planta','Veneno'],
+        peso: '5.5kg',
+        altura: '50cm',
+        habilidades: ['Rayo solar','Clorofila']
+      };
+    });
+
+})();
+

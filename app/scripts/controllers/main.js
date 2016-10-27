@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the pokedexApp
  */
-angular.module('pokedexApp')
+angular.module('pokedex')
   .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
