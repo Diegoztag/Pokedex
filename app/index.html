@@ -32,7 +32,7 @@
           <li><a href="#">Evoluciones</a></li>
         </ul>
       </div>
-      <!-- tab pokedex -->
+      <!-- pokedex -->
       <div>
        <ul>
           <li>
@@ -52,6 +52,49 @@
             </ul>
           </li>
         </ul> 
+      </div>
+      <!-- estadisticas -->
+      <div>
+        <ul>
+          <li>
+            <strong>HP: </strong>
+            <span>{{pkmCtrl.pokemon.estadisticas.hp}}</span>
+          </li>
+          <li>
+            <strong>Ataque: </strong>
+            <span>{{pkmCtrl.pokemon.estadisticas.ataque}}</span>
+          </li>
+          <li>
+            <strong>Defensa: </strong>
+            <span>{{pkmCtrl.pokemon.estadisticas.defensa}}</span>
+          </li>
+          <li>
+            <strong>Ataque especial: </strong>
+            <span>{{pkmCtrl.pokemon.estadisticas['sp.ataque']}}</span>
+          </li>
+          <li>
+            <strong>Defensa especial: </strong>
+            <span>{{pkmCtrl.pokemon.estadisticas['sp.defensa']}}</span>
+          </li>
+          <li>
+            <strong>Velocidad: </strong>
+            <span>{{pkmCtrl.pokemon.estadisticas.velocidad}}</span>
+          </li>
+          <li>
+            <strong>Total: </strong>
+            <span>{{pkmCtrl.pokemon.estadisticas.total}}</span>
+          </li>
+        </ul>
+      </div>
+      <!-- evoluciones -->
+      <div>
+        <div ng-repeat="poke in pkmCtrl.pokemon.evoluciones">
+          <a href="">
+            <img src="images/pokemons/{{poke | lowercase}}.jpg">
+            <p><strong>{{poke}}</strong></p>
+          </a>
+          <span ng-hide="$last">↓</span>
+        </div>
       </div>
       
     </div>
