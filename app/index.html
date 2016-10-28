@@ -25,15 +25,15 @@
       <h2>{{pkmCtrl.pokemon.especie}}</h2>
       <img src="images/pokemons/{{pkmCtrl.pokemon.nombre|lowercase}}.jpg">
       <!-- tabs -->
-      <div>
+      <div ng-controller="TabsController as tabs">
         <ul>
-          <li><a href="#">Pokédex</a></li>
-          <li><a href="#">Estadísticas</a></li>
-          <li><a href="#">Evoluciones</a></li>
+          <li ng-class="{active:tabs.tab === 1}"><a ng-click="tabs.selectTab(1)">Pokédex</a></li>
+          <li ng-class="{active:tabs.tab === 2}"><a ng-click="tabs.selectTab(2)">Estadísticas</a></li>
+          <li ng-class="{active:tabs.tab === 3}"><a ng-click="tabs.selectTab(3)">Evoluciones</a></li>
         </ul>
       </div>
       <!-- pokedex -->
-      <div>
+      <div ng-show="tabs.tab === 1">
        <ul>
           <li>
             <strong>Tipo: </strong>
@@ -54,7 +54,7 @@
         </ul> 
       </div>
       <!-- estadisticas -->
-      <div>
+      <div ng-show="tabs.tab === 2">
         <ul>
           <li>
             <strong>HP: </strong>
@@ -87,7 +87,7 @@
         </ul>
       </div>
       <!-- evoluciones -->
-      <div>
+      <div ng-show="tabs.tab === 3">
         <div ng-repeat="poke in pkmCtrl.pokemon.evoluciones">
           <a href="">
             <img src="images/pokemons/{{poke | lowercase}}.jpg">

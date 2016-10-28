@@ -10,3 +10,7 @@ body {
   background-color: purple;
 }
 
+.active {
+	background: #ccc;
+}
+
