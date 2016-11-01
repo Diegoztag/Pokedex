@@ -35,8 +35,8 @@
           hp: 45,
           ataque: 49,
           defensa: 49,
-          "sp.ataque": 65,
-          "sp.defensa": 65,
+          'sp.ataque': 65,
+          'sp.defensa': 65,
           velocidad: 45,
           total: 318
         },
@@ -54,7 +54,7 @@
 
     app.filter('imageify', function () {
       return function (input) {
-        var url = "images/pokemons/" + input.toLowerCase() + ".jpg";
+        var url = 'images/pokemons/' + input.toLowerCase() + '.jpg';
         return url;
       };
     });
@@ -64,7 +64,7 @@
       this.show = false;
 
       this.toggle = function () {
-        
+        this.show = !this.show;
       };
     });
 
