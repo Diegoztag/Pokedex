@@ -31,72 +31,114 @@
           <li ng-class="{active:tabs.tab === 2}"><a ng-click="tabs.selectTab(2)">Estadísticas</a></li>
           <li ng-class="{active:tabs.tab === 3}"><a ng-click="tabs.selectTab(3)">Evoluciones</a></li>
         </ul>
-      </div>
-      <!-- pokedex -->
-      <div ng-show="tabs.tab === 1">
-       <ul>
-          <li>
-            <strong>Tipo: </strong>
-            <span class="tipo-{{tipo|lowercase}}" ng-repeat="tipo in pkmCtrl.pokemon.tipo">{{tipo}}</span>
-          </li>
-          <li>
-            <strong>Altura: </strong>{{pkmCtrl.pokemon.altura}}
-          </li>
-          <li>
-            <strong>Peso: </strong>{{pkmCtrl.pokemon.peso}}
-          </li>
-          <li>
-            <strong>Habilidades: </strong>
-            <ul>
-              <li ng-repeat="habs in pkmCtrl.pokemon.habilidades">{{habs}}</li>
-            </ul>
-          </li>
-        </ul> 
-      </div>
-      <!-- estadisticas -->
-      <div ng-show="tabs.tab === 2">
-        <ul>
-          <li>
-            <strong>HP: </strong>
-            <span>{{pkmCtrl.pokemon.estadisticas.hp}}</span>
-          </li>
-          <li>
-            <strong>Ataque: </strong>
-            <span>{{pkmCtrl.pokemon.estadisticas.ataque}}</span>
-          </li>
-          <li>
-            <strong>Defensa: </strong>
-            <span>{{pkmCtrl.pokemon.estadisticas.defensa}}</span>
-          </li>
-          <li>
-            <strong>Ataque especial: </strong>
-            <span>{{pkmCtrl.pokemon.estadisticas['sp.ataque']}}</span>
-          </li>
-          <li>
-            <strong>Defensa especial: </strong>
-            <span>{{pkmCtrl.pokemon.estadisticas['sp.defensa']}}</span>
-          </li>
-          <li>
-            <strong>Velocidad: </strong>
-            <span>{{pkmCtrl.pokemon.estadisticas.velocidad}}</span>
-          </li>
-          <li>
-            <strong>Total: </strong>
-            <span>{{pkmCtrl.pokemon.estadisticas.total}}</span>
-          </li>
-        </ul>
-      </div>
-      <!-- evoluciones -->
-      <div ng-show="tabs.tab === 3">
-        <div ng-repeat="poke in pkmCtrl.pokemon.evoluciones">
-          <a href="">
-            <img src="images/pokemons/{{poke | lowercase}}.jpg">
-            <p><strong>{{poke}}</strong></p>
-          </a>
-          <span ng-hide="$last">↓</span>
+        
+        <!-- pokedex -->
+        <div ng-show="tabs.tab === 1">
+         <ul>
+            <li>
+              <strong>Tipo: </strong>
+              <span class="tipo-{{tipo|lowercase}}" ng-repeat="tipo in pkmCtrl.pokemon.tipo">{{tipo}}</span>
+            </li>
+            <li>
+              <strong>Altura: </strong>{{pkmCtrl.pokemon.altura}}
+            </li>
+            <li>
+              <strong>Peso: </strong>{{pkmCtrl.pokemon.peso}}
+            </li>
+            <li>
+              <strong>Habilidades: </strong>
+              <ul>
+                <li ng-repeat="habs in pkmCtrl.pokemon.habilidades">{{habs}}</li>
+              </ul>
+            </li>
+          </ul> 
+        </div>
+        <!-- estadisticas -->
+        <div ng-show="tabs.tab === 2">
+          <ul>
+            <li>
+              <strong>HP: </strong>
+              <span>{{pkmCtrl.pokemon.estadisticas.hp}}</span>
+            </li>
+            <li>
+              <strong>Ataque: </strong>
+              <span>{{pkmCtrl.pokemon.estadisticas.ataque}}</span>
+            </li>
+            <li>
+              <strong>Defensa: </strong>
+              <span>{{pkmCtrl.pokemon.estadisticas.defensa}}</span>
+            </li>
+            <li>
+              <strong>Ataque especial: </strong>
+              <span>{{pkmCtrl.pokemon.estadisticas['sp.ataque']}}</span>
+            </li>
+            <li>
+              <strong>Defensa especial: </strong>
+              <span>{{pkmCtrl.pokemon.estadisticas['sp.defensa']}}</span>
+            </li>
+            <li>
+              <strong>Velocidad: </strong>
+              <span>{{pkmCtrl.pokemon.estadisticas.velocidad}}</span>
+            </li>
+            <li>
+              <strong>Total: </strong>
+              <span>{{pkmCtrl.pokemon.estadisticas.total}}</span>
+            </li>
+          </ul>
+        </div>
+        <!-- evoluciones -->
+        <div ng-show="tabs.tab === 3">
+          <div ng-repeat="poke in pkmCtrl.pokemon.evoluciones">
+            <a href="">
+              <img src="{{poke | imageify}}">
+              <p><strong>{{poke}}</strong></p>
+            </a>
+            <span ng-hide="$last">↓</span>
+          </div>
         </div>
       </div>
-      
+      <!-- /tabs -->
+
+      <!-- comments -->
+      <div ng-controller="ComentariosController as cmtsCtrl">
+        <button ng-hide="cmtsCtrl.show" ng-click="toggle()">Show comments <span>{{cmtsCtrl.comentarios.length}}</span></button>
+
+        <div ng-show="cmtsCtrl.show">
+          <h1>Comments 
+            <button ng-click="cmtsCtrl.toggle()">&times;</button>
+          </h1>
+
+          <form role="form">
+            
+            <textarea placeholder="Please tell us what you think about {{pkmCtrl.pokemon.nombre}}"></textarea>
+
+            <input type="email" placeholder="Escribe tu email">
+            <label>
+              <input id="anonymous" type="checkbox">
+              Anonymous
+            </label>
+
+            <button>Comment</button>
+          </form>
+
+          <blockquote>
+            <p>OMG Bulbasaur is AMAZING!!!</p>
+            <footer>
+              Comment by <a href="mailto:pepe@pepe.com">pepe@pepe.com</a> on <span>Sep 12, 2014, 11:00:00 PM</span>
+            </footer>
+          </blockquote>
+
+          <blockquote>
+            <p>Nah, I hate it -_-</p>
+            <footer>
+              Comment by <em>Anonymous</em> on <span>Sep 12, 2014, 11:00:00 PM</span>
+            </footer>
+          </blockquote>
+
+        </div>
+
+      </div>
+      <!-- /comments -->
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

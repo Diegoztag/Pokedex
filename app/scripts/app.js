@@ -52,5 +52,21 @@
       };
     });
 
+    app.filter('imageify', function () {
+      return function (input) {
+        var url = "images/pokemons/" + input.toLowerCase() + ".jpg";
+        return url;
+      };
+    });
+
+    app.controller('ComentariosController', function(){
+      this.comentarios = [];
+      this.show = false;
+
+      this.toggle = function () {
+        
+      };
+    });
+
 })();
 
