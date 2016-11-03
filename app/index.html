@@ -109,11 +109,11 @@
             <button ng-click="cmtsCtrl.toggle()">&times;</button>
           </h1>
 
-          <form role="form" ng-submit="cmtsCtrl.agregarcoment()">
+          <form name="comentariosForm" ng-submit="comentariosForm.$valid && cmtsCtrl.agregarcoment()" novalidate>
             
-            <textarea placeholder="Escribe lo que piensas sobre {{pkmCtrl.pokemon.nombre}}" ng-model="cmtsCtrl.comentario.body"></textarea>
+            <textarea placeholder="Escribe lo que piensas sobre {{pkmCtrl.pokemon.nombre}}" ng-model="cmtsCtrl.comentario.body" required></textarea>
 
-            <input type="text" placeholder="Escribe tu email" ng-model="cmtsCtrl.comentario.email" ng-disabled="cmtsCtrl.comentario.anonimo">
+            <input type="email" placeholder="Escribe tu email" ng-model="cmtsCtrl.comentario.email" ng-disabled="cmtsCtrl.comentario.anonimo" ng-required="!cmtsCtrl.comentario.anonimo">
             <label>
               <input id="anonymous" type="checkbox" ng-model="cmtsCtrl.comentario.anonimo" ng-change="cmtsCtrl.anonimoCambio()">
               <em>Anónimo</em>
@@ -121,7 +121,7 @@
 
             <button type="submit">Comment</button>
           </form>
-
+          
           <blockquote ng-repeat="comentario in cmtsCtrl.comentarios">
             <p>{{comentario.body}}</p>
             <footer>

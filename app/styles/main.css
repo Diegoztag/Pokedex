@@ -14,3 +14,11 @@ body {
 	background: #ccc;
 }
 
+.ng-invalid.ng-dirty {
+	border-color: tomato;
+}
+
+.ng-valid.ng-dirty {
+	border-color: #35D060;
+}
+
