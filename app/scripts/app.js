@@ -7,115 +7,23 @@
       'ngResource',
       'ngRoute',
       'ngSanitize',
-      'ngTouch'
+      'ngTouch',
+      'pokedex.controllers',
+      'pokedex.directives',
+      'pokedex.filters'
     ]);
 
-    app.config(function ($routeProvider) {
-      $routeProvider
-        .when('/', {
-          templateUrl: 'views/main.html',
-          controller: 'MainCtrl',
-          controllerAs: 'main'
-        })
-        .otherwise({
-          redirectTo: '/'
-        });
-    }); 
-
-    app.controller('PokemonController', function(){
-      this.pokemon = {
-        id: '001',
-        nombre: 'Bulbasaur',
-        especie: 'Pokémon semilla',
-        tipo: ['Planta','Veneno'],
-        peso: '5.5kg',
-        altura: '50cm',
-        habilidades: ['Rayo solar','Clorofila'],
-        estadisticas: {
-          hp: 45,
-          ataque: 49,
-          defensa: 49,
-          'sp.ataque': 65,
-          'sp.defensa': 65,
-          velocidad: 45,
-          total: 318
-        },
-        evoluciones: ['Bulbasaur','Ivysaur','Venusaur']
-      };
-    });
-
-    app.controller('TabsController', function(){
-      this.tab = 1;
-
-      this.selectTab = function (tab) {
-        this.tab = tab;
-      };
-    });
-
-    app.filter('imageify', function () {
-      return function (input) {
-        var url = 'images/pokemons/' + input.toLowerCase() + '.jpg';
-        return url;
-      };
-    });
-
-    app.controller('ComentariosController', function(){
-      this.comentarios = [];
-      this.commentario = {};
-      this.show = false;
-
-      this.toggle = function () {
-        this.show = !this.show;
-      };
-
-      this.anonimoCambio = function () {
-        if (this.comentario.anonimo) {
-          this.comentario.email = '';
-        }
-      };
-
-      this.agregarcoment = function () {
-        this.comentario.fecha = Date.now();
-        this.comentarios.push(this.comentario);
-        this.comentario = {};
-      };
-    });
-
-    app.directive('pokemonNombre', function(){
-      return {
-        restrict: 'E',
-        templateUrl: 'views/pokemon-nombre.html'
-      };
-    });
-
-    app.directive('pokemonImagen', function(){
-      return {
-        restrict: 'E',
-        templateUrl: 'views/pokemon-imagen.html'
-      };
-    });
-
-    app.directive('pokemonDatos', function(){
-      return {
-        restrict: 'E',
-        templateUrl: 'views/pokemon-datos.html'
-      };
-    });
-
-    app.directive('pokemonEstadisticas', function(){
-      return {
-        restrict: 'E',
-        templateUrl: 'views/pokemon-estadisticas.html'
-      };
-    });
-
-    app.directive('pokemonEvoluciones', function(){
-      return {
-        restrict: 'E',
-        templateUrl: 'views/pokemon-evoluciones.html'
-      };
-    });
-
+  app.config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+  }); 
 
 })();
 
