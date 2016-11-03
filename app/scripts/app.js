@@ -79,8 +79,43 @@
         this.comentarios.push(this.comentario);
         this.comentario = {};
       };
-
     });
+
+    app.directive('pokemonNombre', function(){
+      return {
+        restrict: 'E',
+        templateUrl: 'views/pokemon-nombre.html'
+      };
+    });
+
+    app.directive('pokemonImagen', function(){
+      return {
+        restrict: 'E',
+        templateUrl: 'views/pokemon-imagen.html'
+      };
+    });
+
+    app.directive('pokemonDatos', function(){
+      return {
+        restrict: 'E',
+        templateUrl: 'views/pokemon-datos.html'
+      };
+    });
+
+    app.directive('pokemonEstadisticas', function(){
+      return {
+        restrict: 'E',
+        templateUrl: 'views/pokemon-estadisticas.html'
+      };
+    });
+
+    app.directive('pokemonEvoluciones', function(){
+      return {
+        restrict: 'E',
+        templateUrl: 'views/pokemon-evoluciones.html'
+      };
+    });
+
 
 })();
 

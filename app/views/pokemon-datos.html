@@ -1,0 +1,18 @@
+<ul>
+  <li>
+    <strong>Tipo: </strong>
+    <span class="tipo-{{tipo|lowercase}}" ng-repeat="tipo in pkmCtrl.pokemon.tipo">{{tipo}}</span>
+  </li>
+  <li>
+    <strong>Altura: </strong>{{pkmCtrl.pokemon.altura}}
+  </li>
+  <li>
+    <strong>Peso: </strong>{{pkmCtrl.pokemon.peso}}
+  </li>
+  <li>
+    <strong>Habilidades: </strong>
+    <ul>
+      <li ng-repeat="habs in pkmCtrl.pokemon.habilidades">{{habs}}</li>
+    </ul>
+  </li>
+</ul> 
