@@ -61,11 +61,25 @@
 
     app.controller('ComentariosController', function(){
       this.comentarios = [];
+      this.commentario = {};
       this.show = false;
 
       this.toggle = function () {
         this.show = !this.show;
       };
+
+      this.anonimoCambio = function () {
+        if (this.comentario.anonimo) {
+          this.comentario.email = '';
+        }
+      };
+
+      this.agregarcoment = function () {
+        this.comentario.fecha = Date.now();
+        this.comentarios.push(this.comentario);
+        this.comentario = {};
+      };
+
     });
 
 })();

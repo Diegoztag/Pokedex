@@ -109,26 +109,26 @@
             <button ng-click="cmtsCtrl.toggle()">&times;</button>
           </h1>
 
-          <form role="form">
+          <form role="form" ng-submit="cmtsCtrl.agregarcoment()">
             
-            <textarea placeholder="Escribe lo que piensas sobre {{pkmCtrl.pokemon.nombre}}" ng-model="comentario.body"></textarea>
+            <textarea placeholder="Escribe lo que piensas sobre {{pkmCtrl.pokemon.nombre}}" ng-model="cmtsCtrl.comentario.body"></textarea>
 
-            <input type="text" placeholder="Escribe tu email" ng-model="comentario.email" ng-disabled="comentario.anonimo">
+            <input type="text" placeholder="Escribe tu email" ng-model="cmtsCtrl.comentario.email" ng-disabled="cmtsCtrl.comentario.anonimo">
             <label>
-              <input id="anonymous" type="checkbox" ng-model="comentario.anonimo">
+              <input id="anonymous" type="checkbox" ng-model="cmtsCtrl.comentario.anonimo" ng-change="cmtsCtrl.anonimoCambio()">
               <em>Anónimo</em>
             </label>
 
-            <button>Comment</button>
+            <button type="submit">Comment</button>
           </form>
 
-          <blockquote>
+          <blockquote ng-repeat="comentario in cmtsCtrl.comentarios">
             <p>{{comentario.body}}</p>
             <footer>
-              Comment by 
+              Comentado por 
                 <a href="mailto:{{comentario.email}}" ng-if="!comentario.anonimo">{{comentario.email}}</a>
-                <em ng-if="comentario.anonimo">Anonimo</em> on 
-                <span>Sep 12, 2014, 11:00:00 PM</span>
+                <em ng-if="comentario.anonimo">Anonimo</em> el
+                <span>{{comentario.fecha|date:'medium'}}</span>
             </footer>
           </blockquote>
 
