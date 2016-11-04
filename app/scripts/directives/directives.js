@@ -6,42 +6,42 @@
   .directive('pokemonNombre', function(){
     return {
       restrict: 'E',
-      templateUrl: 'views/pokemon-nombre.html'
+      templateUrl: 'partials/pokemon-nombre.html'
     };
   })
 
   .directive('pokemonImagen', function(){
     return {
       restrict: 'E',
-      templateUrl: 'views/pokemon-imagen.html'
+      templateUrl: 'partials/pokemon-imagen.html'
     };
   })
 
   .directive('pokemonDatos', function(){
     return {
       restrict: 'E',
-      templateUrl: 'views/pokemon-datos.html'
+      templateUrl: 'partials/pokemon-datos.html'
     };
   })
 
   .directive('pokemonEstadisticas', function(){
     return {
       restrict: 'E',
-      templateUrl: 'views/pokemon-estadisticas.html'
+      templateUrl: 'partials/pokemon-estadisticas.html'
     };
   })
 
   .directive('pokemonEvoluciones', function(){
     return {
       restrict: 'E',
-      templateUrl: 'views/pokemon-evoluciones.html'
+      templateUrl: 'partials/pokemon-evoluciones.html'
     };
   })
 
   .directive('pokemonComentarios', function(){
     return {
       restrict: 'E',
-      templateUrl: 'views/pokemon-comentarios.html',
+      templateUrl: 'partials/pokemon-comentarios.html',
       controller: function () {
         this.comentarios = [];
         this.commentario = {};
