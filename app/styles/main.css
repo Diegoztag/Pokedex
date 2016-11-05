@@ -2,12 +2,101 @@ body {
   padding: 0;
 }
 
+.tipo {
+  color: #fff;
+  font-family: sans-serif;
+  margin: 1px;
+  padding: 2px;
+}
+
+.tipo-normal {
+  background-color: #a8a878;
+  border: solid 1px #6d6d4e;
+}
+
+.tipo-fuego {
+  background-color: #f08030;
+  border: solid 1px #9c531f;
+}
+
+.tipo-pelea {
+  background-color: #c03028;
+  border: solid 1px #7d1f1a;
+}
+
+.tipo-agua {
+  background-color: #6890f0;
+  border: solid 1px #445e9c;
+}
+
+.tipo-volador {
+  background-color: #a890f0;
+  border: solid 1px #6d5e9c;
+}
+
 .tipo-planta {
-  background-color: green;
+  background-color: #78c850;
+  border: solid 1px #4e8234;
 }
 
 .tipo-veneno {
-  background-color: purple;
+  background-color: #a040a0;
+  border: solid 1px #c183c1;
+}
+
+.tipo-electrico {
+  background-color: #f8d030;
+  border: solid 1px #a1871f;
+}
+
+.tipo-tierra {
+  background-color: #e0c068;
+  border: solid 1px #927d44;
+}
+
+.tipo-psiquico {
+  background-color: #f85888;
+  border: solid 1px #a13959;
+}
+
+.tipo-roca {
+  background-color: #b8a038;
+  border: solid 1px #786824;
+}
+
+.tipo-hielo {
+  background-color: #98d8d8;
+  border: solid 1px #638d8d;
+}
+
+.tipo-insecto {
+  background-color: #a8b820;
+  border: solid 1px #6d7815;
+}
+
+.tipo-dragon {
+  background-color: #7038f8;
+  border: solid 1px #4924a1;
+}
+
+.tipo-fantasma {
+  background-color: #705898;
+  border: solid 1px #493963;
+}
+
+.tipo-obscuro {
+  background-color: #705848;
+  border: solid 1px #49392f;
+}
+
+.tipo-metal {
+  background-color: #b8b8d0;
+  border: solid 1px #787887;
+}
+
+.tipo-hada {
+  background-color: #ee99ac;
+  border: solid 1px #9b6470;
 }
 
 .active {

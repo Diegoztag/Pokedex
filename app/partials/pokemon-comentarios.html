@@ -1,13 +1,13 @@
 <button ng-hide="cmtsCtrl.show" ng-click="cmtsCtrl.toggle()">Show comments <span>{{cmtsCtrl.comentarios.length}}</span></button>
 
 <div ng-show="cmtsCtrl.show">
-  <h1>Comments 
+  <h1>Comments
     <button ng-click="cmtsCtrl.toggle()">&times;</button>
   </h1>
 
   <form name="comentariosForm" ng-submit="comentariosForm.$valid && cmtsCtrl.agregarcoment()" novalidate>
-    
-    <textarea placeholder="Escribe lo que piensas sobre {{pkmCtrl.pokemon.nombre}}" ng-model="cmtsCtrl.comentario.body" required></textarea>
+
+    <textarea placeholder="Escribe lo que piensas sobre {{pokemon.nombre}}" ng-model="cmtsCtrl.comentario.body" required></textarea>
 
     <input type="email" placeholder="Escribe tu email" ng-model="cmtsCtrl.comentario.email" ng-disabled="cmtsCtrl.comentario.anonimo" ng-required="!cmtsCtrl.comentario.anonimo">
     <label>
@@ -21,7 +21,7 @@
   <blockquote ng-repeat="comentario in cmtsCtrl.comentarios">
     <p>{{comentario.body}}</p>
     <footer>
-      Comentado por 
+      Comentado por
         <a href="mailto:{{comentario.email}}" ng-if="!comentario.anonimo">{{comentario.email}}</a>
         <em ng-if="comentario.anonimo">Anonimo</em> el
         <span>{{comentario.fecha|date:'medium'}}</span>

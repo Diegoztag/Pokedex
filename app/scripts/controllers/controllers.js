@@ -12,8 +12,8 @@
       });
   }])
 
-  .controller('PokemonController', function(){
-    this.pokemon = {
+  .controller('PokemonController', ['$scope', function($scope){
+    $scope.pokemon = {
       id: '001',
       nombre: 'Bulbasaur',
       especie: 'Pokémon semilla',
@@ -32,7 +32,7 @@
       },
       evoluciones: ['Bulbasaur','Ivysaur','Venusaur']
     };
-  })
+  }])
 
   .controller('TabsController', function(){
     this.tab = 1;
@@ -42,5 +42,5 @@
     };
   });
 
-  
+
 })();

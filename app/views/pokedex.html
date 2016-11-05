@@ -1,12 +1,12 @@
 <!-- pokedex -->
 <div>
   <div>
-    <h1>Pokedex</h1>
+    <h1>Pokedex <small>({{pokemons.length}} <span>pokémons)</span></small></h1>
   </div>
   <div ng-repeat="pokemon in pokemons">
-    <h1>{{pokemon.name}} <small>#{{pokemon.id}}</small></h1>
-    <h2><small>{{pokemon.species}}</small></h2>
-    <img ng-src="{{pokemon.name|imageify}}">
+    <pokemon-nombre></pokemon-nombre>
+    <pokemon-imagen></pokemon-imagen>
+    <pokemon-tipo></pokemon-tipo>
   </div>
 </div>
 <!-- /pokedex -->

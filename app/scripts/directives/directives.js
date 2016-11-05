@@ -17,6 +17,13 @@
     };
   })
 
+  .directive('pokemonTipo', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'partials/pokemon-tipo.html'
+    };
+  })
+
   .directive('pokemonDatos', function(){
     return {
       restrict: 'E',
