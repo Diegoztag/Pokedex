@@ -3,35 +3,18 @@
 
 	angular.module('pokedex.controllers', [])
 
-  .controller('PokedexController', ['$scope', '$http', function($scope, $http){
-    $scope.pokemons = [];
-
-    $http.get('../pokemons.json')
-      .success(function (data) {
-        $scope.pokemons = data;
-      });
+  .controller('PokedexController', ['$scope', 'pokemonServices', function($scope, pokemonServices){
+    pokemonServices.all().then(function (data) {
+      $scope.pokemons = data;
+    });
   }])
 
-  .controller('PokemonController', ['$scope', function($scope){
-    $scope.pokemon = {
-      id: '001',
-      nombre: 'Bulbasaur',
-      especie: 'Pokémon semilla',
-      tipo: ['Planta','Veneno'],
-      peso: '5.5kg',
-      altura: '50cm',
-      habilidades: ['Rayo solar','Clorofila'],
-      estadisticas: {
-        hp: 45,
-        ataque: 49,
-        defensa: 49,
-        'sp.ataque': 65,
-        'sp.defensa': 65,
-        velocidad: 45,
-        total: 318
-      },
-      evoluciones: ['Bulbasaur','Ivysaur','Venusaur']
-    };
+  .controller('PokemonController', ['$scope', 'pokemonServices', function($scope, pokemonServices){
+    $scope.pokemon = {};
+
+    pokemonServices.porNombre('squirtle').then(function (data) {
+        $scope.pokemon = data;
+      });
   }])
 
   .controller('TabsController', function(){

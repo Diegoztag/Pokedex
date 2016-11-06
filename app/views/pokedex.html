@@ -4,9 +4,15 @@
     <h1>Pokedex <small>({{pokemons.length}} <span>pokémons)</span></small></h1>
   </div>
   <div ng-repeat="pokemon in pokemons">
-    <pokemon-nombre></pokemon-nombre>
-    <pokemon-imagen></pokemon-imagen>
-    <pokemon-tipo></pokemon-tipo>
+    <a href="/#pokemon/{{pokemon.nombre|normalize}}">
+      <div>
+        <pokemon-nombre></pokemon-nombre>
+        <pokemon-imagen></pokemon-imagen>
+        <div>
+          <pokemon-tipo></pokemon-tipo>
+        </div>
+      </div>
+    </a>
   </div>
 </div>
 <!-- /pokedex -->

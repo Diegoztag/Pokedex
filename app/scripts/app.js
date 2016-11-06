@@ -10,7 +10,8 @@
       'ngTouch',
       'pokedex.controllers',
       'pokedex.directives',
-      'pokedex.filters'
+      'pokedex.filters',
+      'pokedex.services'
     ]);
 
   app.config(['$routeProvider', function ($routeProvider) {
