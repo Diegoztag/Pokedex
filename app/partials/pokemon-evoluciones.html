@@ -1,7 +1,9 @@
-<div ng-repeat="poke in pokemon.evoluciones">
+<div class="text-center" ng-repeat="poke in pokemon.evoluciones">
   <a href="/#/pokemon/{{poke|normalize}}">
-    <img src="{{poke|imageify}}">
-    <p><strong>{{poke}}</strong></p>
+    <img src="{{poke|imageify}}" width="160">
+    <p>
+      <strong>{{poke}}</strong>
+    </p>
   </a>
-  <span ng-hide="$last">↓</span>
+  <span ng-hide="$last" class="glyphicon glyphicon-arrow-down"></span>
 </div>

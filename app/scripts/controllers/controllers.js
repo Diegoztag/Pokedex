@@ -1,4 +1,4 @@
-(function () {
+(function (_) {
   'use strict';
 
 	angular.module('pokedex.controllers', [])
@@ -9,12 +9,21 @@
     if (tipo) {
       pokemonServices.porTipo(tipo).then(function (data) {
         $scope.pokemons = data;
+        $scope.groupped = partition(data, 4);
       });
     } else {
       pokemonServices.all().then(function (data) {
         $scope.pokemons = data;
+        $scope.groupped = partition(data, 4);
       });
     }
+
+    function partition(data, n) {
+      return _.chain(data).groupBy(function (element, index) {
+        return Math.floor(index / n);
+      }).toArray().value();
+    }
+
   }])
 
   .controller('PokemonController', ['$scope', '$routeParams', 'pokemonServices', function($scope, $routeParams, pokemonServices){
@@ -34,5 +43,4 @@
     };
   });
 
-
-})();
+})(_);

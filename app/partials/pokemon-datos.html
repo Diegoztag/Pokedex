@@ -1,14 +1,23 @@
-<ul>
-  <li>
-    <strong>Tipo: </strong><pokemon-tipo></pokemon-tipo>
+<ul class="list-group">
+  <li class="list-group-item">
+    <strong>Tipo: </strong>
+    <span class="pull-right">
+      <pokemon-tipo></pokemon-tipo>
+    </span>
   </li>
-  <li>
-    <strong>Altura: </strong>{{pokemon.altura}}
+  <li class="list-group-item">
+    <strong>Altura: </strong>
+    <span class="pull-right">
+      {{pokemon.altura}}
+    </span>
   </li>
-  <li>
-    <strong>Peso: </strong>{{pokemon.peso}}
+  <li class="list-group-item">
+    <strong>Peso: </strong>
+    <span class="pull-right">
+      {{pokemon.peso}}
+    </span>
   </li>
-  <li>
+  <li class="list-group-item">
     <strong>Habilidades: </strong>
     <ul>
       <li ng-repeat="habs in pokemon.habilidades">{{habs}}</li>

@@ -1,22 +1,41 @@
 body {
-  padding: 0;
+  padding-top: 50px;
 }
 
-a {
+.navbar-brand {
+  font-weight: 800;
+}
+
+.navbar-brand img {
+  width: 24px;
+  display: initial;
+}
+
+.avatar {
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+.nav-tabs {
+  margin-bottom: 10px;
+}
+
+.form-group {
+  padding: 10px;
+}
+
+.btn-tipo:hover {
   text-decoration: none;
-  color: #2d2d2d;
-}
-
-a:hover {
-  transition: 1s;
-  text-decoration: underline;
 }
 
 .tipo {
-  color: #fff;
-  font-family: sans-serif;
-  margin: 1px;
-  padding: 2px;
+  margin-left: 1px;
+}
+
+.tipo:hover {
+  transition: 0.5s;
+  text-decoration: none;
+  background: #337ab7;
 }
 
 .tipo-normal {
@@ -121,3 +140,40 @@ a:hover {
 	border-color: #35D060;
 }
 
+.pokemon {
+  height: 350px;
+}
+
+.pokemon h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+}
+
+.pokemon h1 > small {
+  color: #ccc;
+}
+
+.pokemon img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 200px;
+  max-height: 220px;
+}
+
+.pokemon .panel-body {
+  position: relative;
+  height: 250px;
+}
+
+.pokemon pokemon-tipo {
+  font-size: 22px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
