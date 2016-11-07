@@ -37,9 +37,26 @@
       return deferred.promise;
     }
 
+    function porTipo (tipo) {
+      tipo = normalize(tipo);
+      var deferred = $q.defer();
+
+      all().then(function (data) {
+        var resultados = data.filter(function (pokemon) {
+          return pokemon.tipo.some(function (t) {
+            return normalize(t) === tipo;
+          });
+        });
+        deferred.resolve(resultados);
+      });
+
+      return deferred.promise;
+    }
+
     return {
       all: all,
-      porNombre: porNombre
+      porNombre: porNombre,
+      porTipo: porTipo
     };
 
   }]);

@@ -3,10 +3,18 @@
 
 	angular.module('pokedex.controllers', [])
 
-  .controller('PokedexController', ['$scope', 'pokemonServices', function($scope, pokemonServices){
-    pokemonServices.all().then(function (data) {
-      $scope.pokemons = data;
-    });
+  .controller('PokedexController', ['$scope', '$routeParams', 'pokemonServices', function($scope, $routeParams, pokemonServices){
+    var tipo = $routeParams.tipo;
+
+    if (tipo) {
+      pokemonServices.porTipo(tipo).then(function (data) {
+        $scope.pokemons = data;
+      });
+    } else {
+      pokemonServices.all().then(function (data) {
+        $scope.pokemons = data;
+      });
+    }
   }])
 
   .controller('PokemonController', ['$scope', '$routeParams', 'pokemonServices', function($scope, $routeParams, pokemonServices){
