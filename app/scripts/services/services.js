@@ -22,7 +22,7 @@
       var deferred = $q.defer();
 
       all().then(function (data) {
-        var resultados = data.filter(function (pokemon) {
+        var resultados = data.filter(function(pokemon) {
           return normalize(pokemon.nombre) === nombre;
         });
 

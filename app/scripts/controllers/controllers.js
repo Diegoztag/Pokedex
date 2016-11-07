@@ -9,10 +9,11 @@
     });
   }])
 
-  .controller('PokemonController', ['$scope', 'pokemonServices', function($scope, pokemonServices){
+  .controller('PokemonController', ['$scope', '$routeParams', 'pokemonServices', function($scope, $routeParams, pokemonServices){
+    var name = $routeParams.nombre;
     $scope.pokemon = {};
 
-    pokemonServices.porNombre('squirtle').then(function (data) {
+    pokemonServices.porNombre(name).then(function (data) {
         $scope.pokemon = data;
       });
   }])
