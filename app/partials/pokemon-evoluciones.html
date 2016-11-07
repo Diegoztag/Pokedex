@@ -1,5 +1,5 @@
 <div ng-repeat="poke in pokemon.evoluciones">
-  <a href="">
+  <a href="/#/pokemon/{{poke|normalize}}">
     <img src="{{poke|imageify}}">
     <p><strong>{{poke}}</strong></p>
   </a>
