@@ -45,33 +45,44 @@
     };
   })
 
-  .directive('pokemonComentarios', function(){
+  .directive('pokemonComentarios', ['pokemonServices', function(pokemonServices){
     return {
       restrict: 'E',
       templateUrl: 'partials/pokemon-comentarios.html',
-      controller: function () {
-        this.comentarios = [];
-        this.commentario = {};
-        this.show = false;
+      scope: {
+          nombre: '@nombre'
+      },
+      link: function (scope, element, attributes) {
+        attributes.$observe('nombre', function (value) {
+          if (value) {
+            scope.nombre = value;
+            scope.comentarios = pokemonServices.obtenerComentarios(value);
+          }
+        });
+      },
+      controller: function ($scope) {
+        $scope.comentarios = pokemonServices.obtenerComentarios($scope.nombre);
+        $scope.comentario = {};
+        $scope.show = false;
 
-        this.toggle = function () {
-          this.show = !this.show;
+        $scope.toggle = function () {
+          $scope.show = !$scope.show;
         };
 
-        this.anonimoCambio = function () {
-          if (this.comentario.anonimo) {
-            this.comentario.email = '';
+        $scope.anonimoCambio = function () {
+          if ($scope.comentario.anonimo) {
+            $scope.comentario.email = '';
           }
         };
 
-        this.agregarcoment = function () {
-          this.comentario.fecha = Date.now();
-          this.comentarios.push(this.comentario);
-          this.comentario = {};
+        $scope.agregarcoment = function () {
+          $scope.comentario.fecha = Date.now();
+          pokemonServices.guardarComentario($scope.nombre, $scope.comentario);
+          $scope.comentarios = pokemonServices.obtenerComentarios($scope.nombre);
+          $scope.comentario = {};
         };
-      },
-      controllerAs: 'cmtsCtrl'
+      }
     };
-  });
+  }]);
 
 })();

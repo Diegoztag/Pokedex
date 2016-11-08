@@ -7,6 +7,8 @@
     var tipo = $routeParams.tipo;
 
     if (tipo) {
+      $scope.tipo = tipo;
+
       pokemonServices.porTipo(tipo).then(function (data) {
         $scope.pokemons = data;
         $scope.groupped = partition(data, 4);

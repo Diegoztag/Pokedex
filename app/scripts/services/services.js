@@ -3,7 +3,8 @@
 
   angular.module('pokedex.services', [])
 
-    .factory('pokemonServices', ['$http', '$q', '$filter', function($http, $q, $filter){
+    .factory('pokemonServices', ['$http', '$q', '$filter', '$window', function($http, $q, $filter, $window){
+      var localStorage = $window.localStorage;
       var normalize = $filter('normalize');
 
       function all() {
@@ -53,10 +54,30 @@
       return deferred.promise;
     }
 
+    function guardarComentario (pokemon, comentario) {
+      var comentarios = obtenerComentarios(pokemon);
+
+      comentarios.push(comentario);
+      localStorage.setItem(pokemon, JSON.stringify(comentarios));
+    }
+
+    function obtenerComentarios (pokemon) {
+      var comentarios = localStorage.getItem(pokemon);
+
+      if (!comentarios) {
+        comentarios = [];
+      } else {
+        comentarios = JSON.parse(comentarios);
+      }
+      return comentarios;
+    }
+
     return {
       all: all,
       porNombre: porNombre,
-      porTipo: porTipo
+      porTipo: porTipo,
+      guardarComentario: guardarComentario,
+      obtenerComentarios: obtenerComentarios
     };
 
   }]);
