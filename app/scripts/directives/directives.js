@@ -17,13 +17,6 @@
     };
   })
 
-  .directive('pokemonTipo', function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'partials/pokemon-tipo.html'
-    };
-  })
-
   .directive('pokemonDatos', function(){
     return {
       restrict: 'E',
@@ -42,6 +35,13 @@
     return {
       restrict: 'E',
       templateUrl: 'partials/pokemon-evoluciones.html'
+    };
+  })
+
+  .directive('pokemonTipo', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'partials/pokemon-tipo.html'
     };
   })
 

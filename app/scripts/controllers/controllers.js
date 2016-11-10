@@ -6,6 +6,12 @@
   .controller('PokedexController', ['$scope', '$routeParams', 'pokemonServices', function($scope, $routeParams, pokemonServices){
     var tipo = $routeParams.tipo;
 
+    function partition (data, n) {
+      return _.chain(data).groupBy(function (element, index) {
+        return Math.floor(index / n);
+      }).toArray().value();
+    }
+
     if (tipo) {
       $scope.tipo = tipo;
 
@@ -19,13 +25,6 @@
         $scope.groupped = partition(data, 4);
       });
     }
-
-    function partition(data, n) {
-      return _.chain(data).groupBy(function (element, index) {
-        return Math.floor(index / n);
-      }).toArray().value();
-    }
-
   }])
 
   .controller('PokemonController', ['$scope', '$routeParams', 'pokemonServices', function($scope, $routeParams, pokemonServices){

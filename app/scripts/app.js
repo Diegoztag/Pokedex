@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var app = angular.module('pokedex', [
+  angular.module('pokedex', [
       'ngAnimate',
       'ngCookies',
       'ngResource',
@@ -12,9 +12,9 @@
       'pokedex.directives',
       'pokedex.filters',
       'pokedex.services'
-    ]);
+    ])
 
-  app.config(['$routeProvider', function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/',{
         templateUrl: 'views/pokedex.html',
